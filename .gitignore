@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/eTickets/appsettings.json
+/eTickets/Migrations/20221206082608_Initial.cs
+/eTickets/Migrations/20221206121350_SajatGepenElso.cs
+/eTickets/Migrations/AppDbContextModelSnapshot.cs
+/eTickets/Migrations/20221206121803_UjAdatbazisMasterHelyett.cs
+/eTickets/Migrations/20221206121803_UjAdatbazisMasterHelyett.Designer.cs
