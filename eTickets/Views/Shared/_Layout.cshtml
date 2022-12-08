@@ -19,14 +19,13 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="navbar-nav flex-grow-1">
-                            <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index"> <i class="badge-info bi-film"></i>Movies</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index"><i class="bi bi-film"></i> Movies</a>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="a" id="navbarDropdown" role="button" data-toggle="button"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="bi bi-gear"></i> Management
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-gear"></i> Management
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -35,10 +34,12 @@
                                 <a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
                             </div>
                         </li>
+
+
                     </ul>
 
-                    <form class="form-inline my-2 my-lg-0" asp-controller="Movies" asp-action="Filter" style="padding-right: 225px;">
-                        <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." />
+                    <form class="form-inline my-2 my-lg-0" asp-controller="Movies" asp-action="Filter" style="padding-right: 25px;">
+                        <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                     </form>
 
