@@ -370,3 +370,7 @@ FodyWeavers.xsd
 /eTickets/appsettings.json
 /eTickets/Migrations/20221212073129_sulisgepen.Designer.cs
 /eTickets/Migrations/20221212073129_sulisgepen.cs
+/eTickets/Migrations/20221212122202_Order_OrderItem_Added.cs
+/eTickets/Migrations/20221212122202_Order_OrderItem_Added.Designer.cs
+/eTickets/Migrations/20221212122825_Order_OrderItem_Added.Designer.cs
+/eTickets/Migrations/20221212122825_Order_OrderItem_Added.cs
