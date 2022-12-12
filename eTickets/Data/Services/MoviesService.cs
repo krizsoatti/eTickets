@@ -43,7 +43,7 @@ namespace eTickets.Data.Services
                 };
                 await _context.Actors_Movies.AddAsync(newActorMovie);
             }
-            await _context.AddRangeAsync();
+            await _context.SaveChangesAsync();
         }
 
         public async Task<Movie> GetMovieByIdAsync(int id)
@@ -65,6 +65,45 @@ namespace eTickets.Data.Services
             response.Producers = await _context.Producers.OrderBy(n => n.FullName).ToListAsync();
 
             return response;
+        }
+
+        public async Task UpdateMovieAsync(NewMovieVM data)
+        {
+            var dbMovie = await _context.Movies.FirstOrDefaultAsync(n => n.Id == data.Id);
+
+            if (dbMovie != null)
+            {
+
+                dbMovie.Name = data.Name;
+                dbMovie.Description = data.Description;
+                dbMovie.Price = data.Price;
+                dbMovie.ImageURL = data.ImageURL;
+                dbMovie.CinemaId = data.CinemaId;
+                dbMovie.StartDate = data.StartDate;
+                dbMovie.EndDate = data.EndDate;
+                dbMovie.MovieCategory = data.MovieCategory;
+                dbMovie.ProducerId = data.ProducerId;
+                await _context.SaveChangesAsync();
+            }
+
+            //Remove existing actors
+            var existingActorsDb = _context.Actors_Movies.Where(n => n.MovieId == data.Id).ToList();
+            _context.Actors_Movies.RemoveRange(existingActorsDb);
+            await _context.SaveChangesAsync();
+
+
+
+            //Add Movie Actors
+            foreach (var actodId in data.ActorIds)
+            {
+                var newActorMovie = new Actor_Movie()
+                {
+                    MovieId = data.Id,
+                    ActorId = actodId
+                };
+                await _context.Actors_Movies.AddAsync(newActorMovie);
+            }
+            await _context.SaveChangesAsync();
         }
     }
 }
