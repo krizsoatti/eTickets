@@ -367,3 +367,6 @@ FodyWeavers.xsd
 /eTickets/Migrations/AppDbContextModelSnapshot.cs
 /eTickets/Migrations/20221206121803_UjAdatbazisMasterHelyett.cs
 /eTickets/Migrations/20221206121803_UjAdatbazisMasterHelyett.Designer.cs
+/eTickets/appsettings.json
+/eTickets/Migrations/20221212073129_sulisgepen.Designer.cs
+/eTickets/Migrations/20221212073129_sulisgepen.cs
