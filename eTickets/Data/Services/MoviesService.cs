@@ -94,12 +94,12 @@ namespace eTickets.Data.Services
 
 
             //Add Movie Actors
-            foreach (var actodId in data.ActorIds)
+            foreach (var actorId in data.ActorIds)
             {
                 var newActorMovie = new Actor_Movie()
                 {
                     MovieId = data.Id,
-                    ActorId = actodId
+                    ActorId = actorId
                 };
                 await _context.Actors_Movies.AddAsync(newActorMovie);
             }
