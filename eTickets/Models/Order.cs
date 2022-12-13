@@ -12,7 +12,7 @@ namespace eTickets.Models
 
         public string UserId { get; set; }
 
-        public List<OrderItem> OrderItem { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
 
     }
 }
