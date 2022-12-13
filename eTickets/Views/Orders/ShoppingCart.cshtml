@@ -46,7 +46,7 @@
             <tfoot>
                 <tr>
                     <td colspan="2"></td>
-                    <td><b>Total: </b></td>
+                    <td><b>Total:</b></td>
                     <td>
                         @Model.ShoppingCartTotal.ToString("c")
                     </td>
@@ -58,7 +58,7 @@
         <div class="text-right">
             <div class="btn-group">
                 @*<a class="btn btn-outline-primary" asp-action="CompleteOrder">
-                    Complete order
+                Complete order
                 </a>*@
                 <div id="paypal-btn"></div>
                 <span style="padding:5px"></span>
@@ -73,38 +73,48 @@
 
 @section Scripts{
 
-
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
     <script>
+
+        let _total = @Html.Raw(Model.ShoppingCartTotal);
+
         paypal.Button.render({
             //Configure environment
             env: 'sandbox',
-            client:{
+            client: {
                 sandbox: 'Ac5eN6Km8BAscK3-D_AmUOy7OtCNcpjeT4J0igP0bg6kD1IZ9bHI4e9biY5k2spmB0P3jFfGGjxVFvDF'
             },
 
             //Customize button
             locale: 'de_AT',
-            style:{
+            style: {
                 size: 'small',
-                color: 'black',
-                shape: 'rect'
+                color: 'gold',
+                shape: 'pill'
             },
             commit: true,
 
             //Set up a payment
             payment: function (data, actions) {
-                console.log("payment set up");
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: _total,
+                            currency: 'EUR'
+                        }
+                    }]
+                });
             },
 
             //Execute the payment
             onAuthorize: function (data, actions) {
-                console.log("payment executed");
+                return actions.payment.execute().then(function () {
+                    var url = '@Url.Action("CompleteOrder", "Orders", new { })';
+                    window.location.href = url;
+                });
             }
 
-
-        }, '#paypal-btn');
+        }, '#paypal-btn')
     </script>
-
 }
