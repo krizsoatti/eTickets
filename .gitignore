@@ -380,3 +380,5 @@ FodyWeavers.xsd
 /eTickets/Migrations/20221212141502_sulibol_itthoniGepre.cs
 /eTickets/Migrations/20221214073407_Identity-Added.Designer.cs
 /eTickets/Migrations/20221214073407_Identity-Added.cs
+/eTickets/Migrations/20221215091157_FizetesnelElszall.Designer.cs
+/eTickets/Migrations/20221215091157_FizetesnelElszall.cs
